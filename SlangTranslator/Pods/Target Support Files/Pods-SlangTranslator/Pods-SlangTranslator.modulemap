@@ -1,0 +1,6 @@
+framework module Pods_SlangTranslator {
+  umbrella header "Pods-SlangTranslator-umbrella.h"
+
+  export *
+  module * { export * }
+}
