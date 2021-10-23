@@ -44,16 +44,6 @@ class APIManager {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
     
-    static func getSkinFromUUID(uuid: String, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        let skinAPIURL = URL(string: "https://crafatar.com/renders/body/\(uuid)?default=MHF_Steve&overlay=true")!
-        URLSession.shared.dataTask(with: skinAPIURL, completionHandler: completion).resume()
-    }
-    
-    static func getHeadFromUUID(uuid: String, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        let headAPIURL = URL(string: "https://crafatar.com/avatars/\(uuid)?default=MHF_Steve&overlay=true")!
-        URLSession.shared.dataTask(with: headAPIURL, completionHandler: completion).resume()
-    }
-    
     
     
 }

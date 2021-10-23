@@ -18,6 +18,9 @@
 		4C1E341F27249DB40021E582 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E341E27249DB40021E582 /* SpinnerViewController.swift */; };
 		4C1E342127249ECD0021E582 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E342027249ECD0021E582 /* Constants.swift */; };
 		4C1E342327249F370021E582 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E342227249F370021E582 /* APIManager.swift */; };
+		4C1E34252724A0E90021E582 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E34242724A0E90021E582 /* User.swift */; };
+		4C1E34272724A35C0021E582 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E34262724A35C0021E582 /* Receipt.swift */; };
+		4C1E34292724A6720021E582 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E34282724A6720021E582 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		4C1E341E27249DB40021E582 /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
 		4C1E342027249ECD0021E582 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4C1E342227249F370021E582 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		4C1E34242724A0E90021E582 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4C1E34262724A35C0021E582 /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
+		4C1E34282724A6720021E582 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4F7EFCEC2B41647448483F00 /* Pods-ReceiptScan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReceiptScan.release.xcconfig"; path = "Target Support Files/Pods-ReceiptScan/Pods-ReceiptScan.release.xcconfig"; sourceTree = "<group>"; };
 		5613D3606DCC7837B7E59858 /* Pods_ReceiptScan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReceiptScan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -56,7 +62,6 @@
 				360614E798E317B4F39E1809 /* Pods-ReceiptScan.debug.xcconfig */,
 				4F7EFCEC2B41647448483F00 /* Pods-ReceiptScan.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -92,6 +97,9 @@
 				4C1E341E27249DB40021E582 /* SpinnerViewController.swift */,
 				4C1E342027249ECD0021E582 /* Constants.swift */,
 				4C1E342227249F370021E582 /* APIManager.swift */,
+				4C1E34242724A0E90021E582 /* User.swift */,
+				4C1E34262724A35C0021E582 /* Receipt.swift */,
+				4C1E34282724A6720021E582 /* MainViewController.swift */,
 			);
 			path = ReceiptScan;
 			sourceTree = "<group>";
@@ -222,10 +230,13 @@
 				4C1E341D272497B00021E582 /* LoginViewController.swift in Sources */,
 				4C1E340D272497100021E582 /* ViewController.swift in Sources */,
 				4C1E3409272497100021E582 /* AppDelegate.swift in Sources */,
+				4C1E34272724A35C0021E582 /* Receipt.swift in Sources */,
 				4C1E340B272497100021E582 /* SceneDelegate.swift in Sources */,
+				4C1E34252724A0E90021E582 /* User.swift in Sources */,
 				4C1E341F27249DB40021E582 /* SpinnerViewController.swift in Sources */,
 				4C1E342127249ECD0021E582 /* Constants.swift in Sources */,
 				4C1E342327249F370021E582 /* APIManager.swift in Sources */,
+				4C1E34292724A6720021E582 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
