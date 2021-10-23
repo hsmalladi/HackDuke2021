@@ -89,5 +89,6 @@ fastlane/test_output
 
 iOSInjectionProject/
 
-Nodejs/node_modules
-Nodejs/.DS_Store
+nodejs/node_modules
+nodejs/.DS_Store
+.DS_Store
