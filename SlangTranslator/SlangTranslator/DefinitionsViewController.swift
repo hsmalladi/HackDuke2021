@@ -84,7 +84,7 @@ class DefinitionsViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //tableView.deselectRow(at: indexPath, animated: false)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
