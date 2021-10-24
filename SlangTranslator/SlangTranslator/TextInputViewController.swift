@@ -44,6 +44,8 @@ class TextInputViewController: UIViewController, UITextViewDelegate {
             return
         }
         
+        
+        
         if text.trimmingCharacters(in: .whitespaces) == "" {
             print("Please enter some text to translate.")
             let alert = UIAlertController(title: "Please enter some text to translate.", message: "", preferredStyle: .alert)
@@ -53,7 +55,13 @@ class TextInputViewController: UIViewController, UITextViewDelegate {
             present(alert, animated: true, completion: nil)
         }
         
-       
+        //Show loading screen
+        let child = SpinnerViewController()
+        
+        addChild(child)
+        child.view.frame = view.frame
+        view.addSubview(child.view)
+        child.didMove(toParent: self)
         
         let parameters = ["text": text]
         let url = APIURL.postTextURL.rawValue
@@ -61,6 +69,11 @@ class TextInputViewController: UIViewController, UITextViewDelegate {
         APIManager.postJSON(url: url, parameters: parameters) { data in
             print(data)
             if data.isEmpty {
+                //Remove loading view upon completion of API Calls
+                child.willMove(toParent: nil)
+                child.view.removeFromSuperview()
+                child.removeFromParent()
+                
                 let alert = UIAlertController(title: "Error getting API data.", message: "", preferredStyle: .alert)
                 
                 alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))
@@ -73,11 +86,26 @@ class TextInputViewController: UIViewController, UITextViewDelegate {
             do {
                 self.wordDefinitionPairs = try decoder.decode([WordDefinitionPair].self, from: data["words"].rawData())
                 
+                //Remove loading view upon completion of API Calls
+                child.willMove(toParent: nil)
+                child.view.removeFromSuperview()
+                child.removeFromParent()
+                
                 self.performSegue(withIdentifier: "showTextTranslation", sender: self)
                 
                 
             } catch let error {
-                print("Can't decode JSON because of error: \(error)")
+                //Remove loading view upon completion of API Calls
+                child.willMove(toParent: nil)
+                child.view.removeFromSuperview()
+                child.removeFromParent()
+                
+                let alert = UIAlertController(title: "Error parsing API data.", message: "", preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))
+                
+                self.present(alert, animated: true, completion: nil)
+                return
             }
             
         }
@@ -86,7 +114,8 @@ class TextInputViewController: UIViewController, UITextViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showTextTranslation" {
-            
+            let destVC = segue.destination as! DefinitionsViewController
+            destVC.pairs = self.wordDefinitionPairs
         }
     }
     

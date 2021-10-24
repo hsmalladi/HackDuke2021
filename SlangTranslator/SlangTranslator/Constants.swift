@@ -9,13 +9,15 @@ import Foundation
 
 enum APIURL: String {
 
-    case postTextURL = "this won't work"
+    case postTextURL = "w"
     case postImageURL = "bruh"
 }
 
 enum AWSKeys: String {
-    case accessKey = "tfadf"
-    case secretKey = "toee"
+
+    case accessKey = "a"
+    case secretKey = "b"
+
 
 }
 
