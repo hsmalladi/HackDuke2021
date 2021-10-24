@@ -89,7 +89,7 @@ class ImageInputViewController: UIViewController {
             }
             
             let parameters = ["image_name": imageName]
-            let url = AWSS3Manager.keys.imageURL
+            let url = "https://meta-will-329918.ue.r.appspot.com/image"
             print(url)
             
             APIManager.postJSON(url: url, parameters: parameters) { data in

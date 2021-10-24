@@ -75,7 +75,7 @@ class TextInputViewController: UIViewController, UITextViewDelegate {
         child.didMove(toParent: self)
         
         let parameters = ["text": text]
-        let url = AWSS3Manager.keys.textURL
+        let url = "https://meta-will-329918.ue.r.appspot.com/text"
         
         APIManager.postJSON(url: url, parameters: parameters) { data in
             print(data)

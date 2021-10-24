@@ -23,8 +23,8 @@ class AWSS3Manager {
     // Upload image using UIImage object
     func uploadImage(withImage image: UIImage, completion:@escaping (String) -> ()) {
 
-        let access = AWSS3Manager.keys.accessKey
-        let secret = AWSS3Manager.keys.secretKey
+        let access = "g"
+        let secret = "t"
         let credentials = AWSStaticCredentialsProvider(accessKey: access, secretKey: secret)
         let configuration = AWSServiceConfiguration(region: AWSRegionType.USEast1, credentialsProvider: credentials)
 

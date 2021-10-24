@@ -21,6 +21,7 @@ class DefinitionsViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         myTextView.text = translatedText
+        myTextView.delegate = self
         initializeAttributedText()
         myTextView.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor
         myTextView.layer.borderWidth = 4
@@ -45,6 +46,12 @@ class DefinitionsViewController: UIViewController, UITableViewDelegate, UITableV
         let pair: WordDefinitionPair = pairs[indexPath.row]
         
         cell.configure(with: pair.word, wordDef: pair.definition)
+        
+        cell.selectionStyle = .blue
+        
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor(named: "blue_theme")
+        cell.selectedBackgroundView = backgroundView
         return cell
     }
     
@@ -56,15 +63,17 @@ class DefinitionsViewController: UIViewController, UITableViewDelegate, UITableV
             ranges[pair.word] = originalAttributedText.mutableString.range(of: pair.word, options: .caseInsensitive)
         }
         
+        
+        
         for(word, _) in ranges {
             let linkRange = originalAttributedText.mutableString.range(of: word, options: .caseInsensitive)
             print(linkRange)
             
             
             originalAttributedText.addAttribute(.link, value: word, range: linkRange)
+            originalAttributedText.addAttribute(.backgroundColor, value: UIColor.yellow, range: linkRange)
+            originalAttributedText.addAttribute(.foregroundColor, value: UIColor.label, range: linkRange)
             originalAttributedText.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 21), range: linkRange)
-            originalAttributedText.addAttribute(.foregroundColor, value: UIColor.green, range: linkRange)
-            originalAttributedText.addAttribute(.underlineStyle, value: NSUnderlineStyle.single, range: linkRange)
         }
         
         myTextView.attributedText = originalAttributedText
@@ -75,7 +84,7 @@ class DefinitionsViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: false)
+        //tableView.deselectRow(at: indexPath, animated: false)
     }
     
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
@@ -83,6 +92,8 @@ class DefinitionsViewController: UIViewController, UITableViewDelegate, UITableV
         if let index = pairs.firstIndex(where: {$0.word == selectedWord}) {
             
             myTableView.selectRow(at: IndexPath(row: index, section: 0), animated: true, scrollPosition: .top)
+            
+            //myTableView.scrollToRow(at: IndexPath(row: index, section: 0), at: .top, animated: true)
         }
         
         return false
