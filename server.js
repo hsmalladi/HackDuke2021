@@ -13,7 +13,11 @@ app.post('/text', (req, res) => {
     console.log(req.body.text)
     let slangObj = {}
     for (let word of words.split(" ")) {
-        console.log(word)
+        if (word != ' ') {
+            word = word.trim()
+            // if not in database
+
+        }
     }
     res.json(req.body)
 })
