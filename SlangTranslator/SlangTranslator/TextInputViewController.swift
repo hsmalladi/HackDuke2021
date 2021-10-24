@@ -10,12 +10,11 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-class TextInputViewController: UIViewController, UITableViewDelegate {
+class TextInputViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var mainTextView: UITextView!
     @IBOutlet weak var translateButton: UIButton!
-    
-    @IBOutlet weak var placeholderText: UITextView!
+    @IBOutlet weak var placeholderText: UILabel!
     
     var inputtedText: String = ""
     
@@ -23,9 +22,22 @@ class TextInputViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.title = "Parents on Groupchat"
+        mainTextView.delegate = self
+        placeholderText.text = "Type in text or paste here"
+        placeholderText.font = UIFont.italicSystemFont(ofSize: (mainTextView.font?.pointSize)!)
+        placeholderText.sizeToFit()
+        mainTextView.addSubview(placeholderText)
+        placeholderText.textColor = UIColor.lightGray
+        placeholderText.isHidden = !mainTextView.text.isEmpty
+        mainTextView.textContainerInset.left = 10
 
         // Do any additional setup after loading the view.
     }
+    
+    func textViewDidChange(_ textView: UITextView) {
+            placeholderText.isHidden = !mainTextView.text.isEmpty
+        }
     
     @IBAction func translateButtonTapped(_ sender: Any) {
         guard let text = mainTextView.text else {

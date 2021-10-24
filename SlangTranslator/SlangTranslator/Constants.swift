@@ -14,8 +14,10 @@ enum APIURL: String {
 }
 
 enum AWSKeys: String {
+
     case accessKey = "a"
     case secretKey = "b"
+
 
 }
 

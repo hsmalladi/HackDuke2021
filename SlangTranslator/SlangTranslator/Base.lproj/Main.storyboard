@@ -32,14 +32,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload Image or Screenshot:" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eu-pQ-zyd">
-                                <rect key="frame" x="20" y="128" width="374" height="75"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rc3-Wp-aSK">
-                                <rect key="frame" x="20" y="693" width="374" height="80"/>
+                                <rect key="frame" x="20" y="722" width="374" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="Wfp-ji-9Cq"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Translate" cornerStyle="capsule">
                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle0"/>
@@ -50,7 +47,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gW8-H1-71c">
-                                <rect key="frame" x="20" y="223" width="374" height="450"/>
+                                <rect key="frame" x="20" y="252" width="374" height="450"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="450" id="5jL-s2-7hk"/>
                                     <constraint firstAttribute="width" constant="374" id="x6O-Ol-MoH"/>
@@ -58,27 +55,32 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Tap here to upload an image">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="31"/>
-                                    <color key="baseBackgroundColor" systemColor="systemGray4Color"/>
+                                    <color key="baseBackgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="imageViewTapped:" destination="n3d-Zj-h9c" eventType="touchUpInside" id="MaO-zB-mR5"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload Image or Screenshot:" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eu-pQ-zyd">
+                                <rect key="frame" x="20" y="108" width="374" height="124"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OMT-0b-A5u"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="3eu-pQ-zyd" firstAttribute="leading" secondItem="4lA-iP-ie7" secondAttribute="leading" constant="20" id="AgB-K3-W2Q"/>
+                            <constraint firstItem="gW8-H1-71c" firstAttribute="top" secondItem="3eu-pQ-zyd" secondAttribute="bottom" constant="20" id="9u7-uW-W3S"/>
                             <constraint firstItem="rc3-Wp-aSK" firstAttribute="leading" secondItem="4lA-iP-ie7" secondAttribute="leading" constant="20" id="Evf-Jb-Aqe"/>
-                            <constraint firstItem="3eu-pQ-zyd" firstAttribute="top" secondItem="OMT-0b-A5u" secondAttribute="top" constant="40" id="GO7-nC-K8A"/>
+                            <constraint firstItem="3eu-pQ-zyd" firstAttribute="leading" secondItem="OMT-0b-A5u" secondAttribute="leading" constant="20" id="Hrj-Ra-TYT"/>
                             <constraint firstItem="gW8-H1-71c" firstAttribute="leading" secondItem="4lA-iP-ie7" secondAttribute="leadingMargin" id="ISq-RT-jAl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gW8-H1-71c" secondAttribute="trailing" id="Mwg-Ri-0UD"/>
                             <constraint firstItem="rc3-Wp-aSK" firstAttribute="top" secondItem="gW8-H1-71c" secondAttribute="bottom" constant="20" id="P6m-nP-iI1"/>
+                            <constraint firstItem="OMT-0b-A5u" firstAttribute="trailing" secondItem="3eu-pQ-zyd" secondAttribute="trailing" constant="20" id="U4E-QF-liI"/>
                             <constraint firstItem="OMT-0b-A5u" firstAttribute="bottom" secondItem="rc3-Wp-aSK" secondAttribute="bottom" constant="40" id="c5j-Tp-3xS"/>
-                            <constraint firstItem="rc3-Wp-aSK" firstAttribute="top" secondItem="gW8-H1-71c" secondAttribute="bottom" constant="20" id="eYT-Ne-2mO"/>
+                            <constraint firstItem="3eu-pQ-zyd" firstAttribute="top" secondItem="OMT-0b-A5u" secondAttribute="top" constant="20" id="fXq-0x-djl"/>
                             <constraint firstAttribute="trailing" secondItem="rc3-Wp-aSK" secondAttribute="trailing" constant="20" id="rCr-hR-I8B"/>
-                            <constraint firstItem="gW8-H1-71c" firstAttribute="top" secondItem="3eu-pQ-zyd" secondAttribute="bottom" constant="20" id="u46-2b-ppL"/>
-                            <constraint firstAttribute="trailing" secondItem="3eu-pQ-zyd" secondAttribute="trailing" constant="20" id="vPQ-zz-bHo"/>
                             <constraint firstItem="rc3-Wp-aSK" firstAttribute="centerX" secondItem="4lA-iP-ie7" secondAttribute="centerX" id="ycp-Yc-2xZ"/>
                         </constraints>
                     </view>
@@ -119,22 +121,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type or Paste Text:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3NI-Cv-U4U">
-                                <rect key="frame" x="40" y="128" width="334" height="37"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Test" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xfc-Cq-Ebx">
-                                <rect key="frame" x="20" y="185" width="374" height="517"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xfc-Cq-Ebx">
+                                <rect key="frame" x="20" y="165" width="374" height="537"/>
                                 <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                                 <color key="tintColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="no"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jDp-Th-Len">
                                 <rect key="frame" x="20" y="722" width="374" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="Wle-xN-g0R"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Translate" cornerStyle="capsule">
                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle0"/>
@@ -143,18 +142,30 @@
                                     <action selector="translateButtonTapped:" destination="sss-EF-8KU" eventType="touchUpInside" id="QN8-lx-VEI"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x38-Qd-Tuj">
+                                <rect key="frame" x="56" y="233" width="117" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parents on Groupchat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3NI-Cv-U4U">
+                                <rect key="frame" x="63" y="108" width="288" height="37"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uMa-WA-OXa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="xfc-Cq-Ebx" firstAttribute="top" secondItem="3NI-Cv-U4U" secondAttribute="bottom" constant="20" id="3Fe-rk-Tms"/>
                             <constraint firstItem="3NI-Cv-U4U" firstAttribute="centerX" secondItem="IsL-jr-cVS" secondAttribute="centerX" id="58Y-gq-o9Q"/>
-                            <constraint firstItem="3NI-Cv-U4U" firstAttribute="top" secondItem="uMa-WA-OXa" secondAttribute="top" constant="40" id="86x-cu-02P"/>
                             <constraint firstItem="jDp-Th-Len" firstAttribute="leading" secondItem="IsL-jr-cVS" secondAttribute="leadingMargin" id="8bB-Vt-Uvf"/>
-                            <constraint firstItem="xfc-Cq-Ebx" firstAttribute="top" secondItem="3NI-Cv-U4U" secondAttribute="bottom" constant="20" id="ChJ-Bj-L8O"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="3NI-Cv-U4U" secondAttribute="trailing" constant="20" id="DoH-XL-hQb"/>
                             <constraint firstItem="xfc-Cq-Ebx" firstAttribute="leading" secondItem="uMa-WA-OXa" secondAttribute="leading" constant="20" id="Uoz-YP-ol3"/>
                             <constraint firstAttribute="bottomMargin" secondItem="jDp-Th-Len" secondAttribute="bottom" constant="40" id="aef-Al-S8l"/>
                             <constraint firstItem="uMa-WA-OXa" firstAttribute="trailing" secondItem="xfc-Cq-Ebx" secondAttribute="trailing" constant="20" id="hq3-kv-zkK"/>
+                            <constraint firstItem="3NI-Cv-U4U" firstAttribute="top" secondItem="uMa-WA-OXa" secondAttribute="top" constant="20" id="o6p-vi-zQs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jDp-Th-Len" secondAttribute="trailing" id="qB7-3z-0Ni"/>
                             <constraint firstItem="jDp-Th-Len" firstAttribute="top" secondItem="xfc-Cq-Ebx" secondAttribute="bottom" constant="20" id="uR3-8m-5bf"/>
                         </constraints>
@@ -162,6 +173,7 @@
                     <tabBarItem key="tabBarItem" title="Text" image="text.alignleft" catalog="system" id="PM0-uT-JeY"/>
                     <connections>
                         <outlet property="mainTextView" destination="xfc-Cq-Ebx" id="jCA-a3-ZTc"/>
+                        <outlet property="placeholderText" destination="x38-Qd-Tuj" id="jC7-p2-Q1M"/>
                         <outlet property="translateButton" destination="jDp-Th-Len" id="XPs-Tq-jN5"/>
                         <segue destination="ade-TM-AWe" kind="show" identifier="showTextTranslation" id="PGM-Zi-SSE"/>
                     </connections>
@@ -225,9 +237,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiarySystemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
