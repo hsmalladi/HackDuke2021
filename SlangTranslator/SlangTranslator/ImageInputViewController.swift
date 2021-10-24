@@ -22,7 +22,11 @@ class ImageInputViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.title = "Translate Image"
+        self.navigationController?.isNavigationBarHidden = false
+        
         imageButton.imageView?.contentMode = .scaleAspectFit
+        imageButton.imageView?.translatesAutoresizingMaskIntoConstraints = false
         imageButton.setImage(nil, for: .normal)
         imageButton.setTitle("Tap to upload an image", for: .normal)
 
@@ -62,6 +66,8 @@ class ImageInputViewController: UIViewController {
             
             return
         }
+        
+        performSegue(withIdentifier: "showImageTranslation", sender: self)
         
         
         
@@ -129,11 +135,16 @@ class ImageInputViewController: UIViewController {
         }
         
         
-        
-        
-        
-        
-        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showImageTranslation" {
+            let destVC = segue.destination as! ImageDefinitionsViewController
+            if let selected = selectedImage {
+                destVC.image = selected
+            }
+            
+        }
     }
     
 
@@ -145,8 +156,12 @@ extension ImageInputViewController: UIImagePickerControllerDelegate & UINavigati
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage {
             self.selectedImage = image
+            imageButton.setImage(image.resizedImage(newSize: CGSize(width: 374, height: 460)), for: .normal)
+            
             imageButton.setTitle("", for: .normal)
-            imageButton.setImage(image, for: .normal)
+                                 
+                
+            
         }
         
         if let imageName = info[.imageURL] as? String {

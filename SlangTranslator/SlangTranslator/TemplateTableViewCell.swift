@@ -10,15 +10,14 @@ import UIKit
 
 class TemplateTableViewCell: UITableViewCell {
     
-    // table.register(MyTableViewCell.nib(), forCellUseReuseIdentifier: MyTableViewCell.identifier)
     
     @IBOutlet var wordTitle: UILabel!
     @IBOutlet var wordDefinition: UILabel!
     
-    static let identifier = "MyTableViewCell"
+    static let identifier = "TemplateTableViewCell"
     
     static func nib() -> UINib{
-        return UINib(nibName: "MyTableViewCell",
+        return UINib(nibName: "TemplateTableViewCell",
                      bundle: nil)
             
     }

@@ -11,6 +11,11 @@ class WordDefinitionPair: Codable {
     var word: String
     var definition: String
     
+    init(word: String, definition: String) {
+        self.word = word
+        self.definition = definition
+    }
+    
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         

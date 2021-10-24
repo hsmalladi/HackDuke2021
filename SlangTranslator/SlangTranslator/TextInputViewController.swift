@@ -22,7 +22,11 @@ class TextInputViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.title = "Parents on Groupchat"
+        
+        self.hideKeyboardWhenTappedAround()
+        self.navigationItem.title = "Translate Text"
+        self.navigationController?.isNavigationBarHidden = false
+        
         mainTextView.delegate = self
         placeholderText.text = "Type in text or paste here"
         placeholderText.font = UIFont.italicSystemFont(ofSize: (mainTextView.font?.pointSize)!)
@@ -40,9 +44,16 @@ class TextInputViewController: UIViewController, UITextViewDelegate {
         }
     
     @IBAction func translateButtonTapped(_ sender: Any) {
+        performSearch()
+        
+    }
+    
+    func performSearch() {
         guard let text = mainTextView.text else {
             return
         }
+        
+        performSegue(withIdentifier: "showTextTranslation", sender: self)
         
         
         
@@ -109,14 +120,34 @@ class TextInputViewController: UIViewController, UITextViewDelegate {
             }
             
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showTextTranslation" {
             let destVC = segue.destination as! DefinitionsViewController
-            destVC.pairs = self.wordDefinitionPairs
+            let fakePairs = [
+                WordDefinitionPair(word: "lmao", definition: "Laugh my ass off"),
+                WordDefinitionPair(word: "lol", definition: "Laugh out loud"),
+                WordDefinitionPair(word: "wtf", definition: "aweufiuwaen fiuawefiu enwafuawe  iufnlaiweufi awejcilu snfiuan wilcun awieyfb lweajcn auwr fhla sjd clkuawnefciaelfbarybvld jsncuawrgi awenf weo fn  ajefa lweflk ajw  awef nalwf n afnwenfwea"),
+                
+                
+            ]
+//            destVC.pairs = self.wordDefinitionPairs
+            destVC.pairs = fakePairs
         }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn _: NSRange, replacementText text: String) -> Bool {
+        let resultRange = text.rangeOfCharacter(from: CharacterSet.newlines, options: .backwards)
+        if text.count == 1 && resultRange != nil {
+            textView.resignFirstResponder()
+            // Do any additional stuff here
+            dismissKeyboard()
+            performSearch()
+            
+            return false
+        }
+        return true
     }
     
 }
