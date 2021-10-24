@@ -7,12 +7,11 @@ app.get('/', (req, res) => {
 })
 
 app.get('/text', (req, res) => {
-    const words = req.body
     console.log(req)
     // for (let word of words) {
     //     // run java
     // }
-    res.json(words)
+    res.send(req.body)
 })
 
 // get image from edison and run python script 
