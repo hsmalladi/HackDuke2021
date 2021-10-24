@@ -21,23 +21,23 @@ public class websiteHTTP implements HttpFunction {
     // Check URL parameters for "name" field
     // "simp" is the default value
       String name = request.getFirstQueryParameter("word").orElse("simp");
-   
+
     // Parse JSON request and check for "word" field
       try {
          JsonElement requestParsed = gson.fromJson(request.getReader(), JsonElement.class);
          JsonObject requestJson = null;
-      
+
          if (requestParsed != null && requestParsed.isJsonObject()) {
             requestJson = requestParsed.getAsJsonObject();
          }
-      
+
          if (requestJson != null && requestJson.has("word")) {
             word = requestJson.get("word").getAsString();
          }
       } catch (JsonParseException e) {
          logger.severe("Error parsing JSON: " + e.getMessage());
       }
-      
+
       PrintWriter out = response.getWriter();
       response.setContentType("application/json");
       response.setCharacterEncoding("UTF-8");
@@ -52,7 +52,7 @@ public class websiteHTTP implements HttpFunction {
       }
       out.print(json.toString());
       out.flush();
-   
+
    }
 
 
@@ -61,7 +61,7 @@ public class websiteHTTP implements HttpFunction {
          word = word.replace(" ", "-");
          String BASE_URL = "https://www.dictionary.com/e/slang/WORD/";
             //Change this to the directory where companies.txt will be saved
-      
+
          URL obj = new URL(BASE_URL.replace("WORD", word));
          HttpURLConnection con = (HttpURLConnection) obj.openConnection();
          con.setRequestMethod("GET");
@@ -86,13 +86,13 @@ public class websiteHTTP implements HttpFunction {
                   i++;
                i++;
             }
-            if (i >= str.length()) 
+            if (i >= str.length())
                break;
             if (str.charAt(i) == '<')
                i--;
             sb.append(str.charAt(i));
          }
-         return str;
+         return sb.toString();
       }catch (Exception e){
          return null;
       }
