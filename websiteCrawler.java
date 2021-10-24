@@ -6,13 +6,13 @@ import java.util.Scanner;
 
 public class websiteCrawler {
     public static void main(String a[]){
-        getDefinition("lol");
+        getDefinition(a[1]);
     }
 
     static String getDefinition(String word){
         try {
             word = word.replace(" ", "-");
-            String BASE_URL = "https://www.dictionary.com/browse/WORD/";
+            String BASE_URL = "https://www.dictionary.com/e/slang/WORD/";
             //Change this to the directory where companies.txt will be saved
 
             URL obj = new URL(BASE_URL.replace("WORD", word));
@@ -43,9 +43,9 @@ public class websiteCrawler {
               sb.append(str.charAt(i));
             }
             System.out.println(sb.toString().replaceAll(">",""));
-            return str;
+            return sb.toString().replaceAll(">","");
         }catch (Exception e){
-            e.printStackTrace();
+            System.out.println("Not slang");
         }
         return null;
     }
