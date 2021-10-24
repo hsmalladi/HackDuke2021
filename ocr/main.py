@@ -7,6 +7,8 @@ import numpy as np
 import os
 import json
 
+pytesseract.pytesseract.tesseract_cmd = r"./Tesseract-OCR/tesseract.exe"
+
 def hello_get(request):
     s3 = boto3.resource(
         service_name='s3',
@@ -15,15 +17,11 @@ def hello_get(request):
         aws_secret_access_key=os.getenv("SECRET_KEY")
     )
     bucket = s3.Bucket('hackduke2021-receipts')
-    request_json = request.get_json(silent=True)
-    request_args = request.args
-    key=""
-    if request_json and 'image' in request_json:
-        key = request_json['image']
-    elif request_args and 'image' in request_args:
-        key = request_args['image']
-    else:
-        key = 'bob.png'
+
+    # print(request)
+    request_json = request.get_json(force=True)
+    key = request_json["image"]
+    print(key)
 
     img = bucket.Object(key).get().get('Body').read()
     nparray = cv2.imdecode(np.asarray(bytearray(img)), cv2.IMREAD_COLOR)
@@ -37,6 +35,6 @@ def hello_get(request):
             ret += " "
 
     # print it
-    return json.dumps({"text": ret})
-
-print(hello_get(None))
+    finalset = {"text": ret}
+    print(finalset)
+    return json.dumps(finalset)

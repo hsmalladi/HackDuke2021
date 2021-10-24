@@ -2,15 +2,8 @@ import requests
 import json
 
 def webscraper(request):
-    request_json = request.get_json(silent=True)
-    request_args = request.args
-    key=''
-    if request_json and 'word' in request_json:
-        key = request_json['word']
-    elif request_args and 'word' in request_args:
-        key = request_args['word']
-    else:
-        key = 'simp'
+    request_json = request.get_json(force=True)
+    key = request_json["word"]
 
     ret = getDefinition(key)
     ans = {}
@@ -29,19 +22,19 @@ def getDefinition(word):
         url = "https://www.dictionary.com/e/slang/WORD/"
         r = requests.get(url.replace("WORD", word))
         str = r.text
-        distance = str.index("mean?");
-        str = str[str.index("<p>", distance):str.index("</p>", distance)].replace("\n"," ");
+        distance = str.index("mean?")
+        str = str[str.index("<p>", distance):str.index("</p>", distance)].replace("\n"," ")
         # print(str)
-        str = str.replace("&#8220;", "\"");
-        str = str.replace("&#8221;", "\"");
-        str = str.replace("&#8217;", "\'");
-        str = str.replace("&#8216;", "\'");
+        str = str.replace("&#8220;", "\"")
+        str = str.replace("&#8221;", "\"")
+        str = str.replace("&#8217;", "\'")
+        str = str.replace("&#8216;", "\'")
         ret = ""
         i = 0
         while (i < len(str)):
             if str[i] == "<":
                 while str[i] != ">":
-                    i+=1;
+                    i+=1
                 i+=1
             if i >= len(str):
                 break
