@@ -24,6 +24,7 @@ DerivedData/
 
 ## Obj-C/Swift specific
 *.hmap
+ocr/.env.yaml
 
 ## App packaging
 *.ipa
@@ -91,4 +92,6 @@ iOSInjectionProject/
 
 nodejs/node_modules
 .DS_Store
+
 ocr/.env.yaml
+

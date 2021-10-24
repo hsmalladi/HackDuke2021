@@ -1,5 +1,4 @@
-pytesseract
-opencv-python
 boto3
 numpy
 flask
+google-cloud-vision
