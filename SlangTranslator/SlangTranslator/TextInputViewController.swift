@@ -68,6 +68,9 @@ class TextInputViewController: UIViewController {
             
         }
         
+
+        //APIManager.postMethod(postURL: <#T##String#>, data: jsonData)
+
 //        AF.request("https://meta-will-329918.ue.r.appspot.com/text", method: .post, parameters: parameters, encoding: JSONEncoding.default)
 //            .responseJSON { response in
 //
@@ -80,6 +83,7 @@ class TextInputViewController: UIViewController {
 //            }
         
         //print(String(data: jsonData, encoding: .utf8)!)
+
 
         
         
