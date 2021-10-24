@@ -13,6 +13,9 @@
 		4C1E343E2724B5E70021E582 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C1E343C2724B5E70021E582 /* Main.storyboard */; };
 		4C1E34402724B5EA0021E582 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C1E343F2724B5EA0021E582 /* Assets.xcassets */; };
 		4C1E34432724B5EA0021E582 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C1E34412724B5EA0021E582 /* LaunchScreen.storyboard */; };
+		4C1E344B2724C1180021E582 /* TextInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E344A2724C1180021E582 /* TextInputViewController.swift */; };
+		4C1E344D2724C12D0021E582 /* ImageInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E344C2724C12D0021E582 /* ImageInputViewController.swift */; };
+		4C1E344F2724C9960021E582 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E344E2724C9960021E582 /* APIManager.swift */; };
 		A64904775EF6F244A4327600 /* Pods_SlangTranslator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF326EB1B9FD7D29744C526A /* Pods_SlangTranslator.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +28,9 @@
 		4C1E343F2724B5EA0021E582 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C1E34422724B5EA0021E582 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C1E34442724B5EA0021E582 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C1E344A2724C1180021E582 /* TextInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputViewController.swift; sourceTree = "<group>"; };
+		4C1E344C2724C12D0021E582 /* ImageInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInputViewController.swift; sourceTree = "<group>"; };
+		4C1E344E2724C9960021E582 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		7B1893CB253A6904D5EB37E9 /* Pods-SlangTranslator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlangTranslator.release.xcconfig"; path = "Target Support Files/Pods-SlangTranslator/Pods-SlangTranslator.release.xcconfig"; sourceTree = "<group>"; };
 		E9D66950B91BAFB30C78C366 /* Pods-SlangTranslator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlangTranslator.debug.xcconfig"; path = "Target Support Files/Pods-SlangTranslator/Pods-SlangTranslator.debug.xcconfig"; sourceTree = "<group>"; };
 		FF326EB1B9FD7D29744C526A /* Pods_SlangTranslator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SlangTranslator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +76,9 @@
 				4C1E343F2724B5EA0021E582 /* Assets.xcassets */,
 				4C1E34412724B5EA0021E582 /* LaunchScreen.storyboard */,
 				4C1E34442724B5EA0021E582 /* Info.plist */,
+				4C1E344A2724C1180021E582 /* TextInputViewController.swift */,
+				4C1E344C2724C12D0021E582 /* ImageInputViewController.swift */,
+				4C1E344E2724C9960021E582 /* APIManager.swift */,
 			);
 			path = SlangTranslator;
 			sourceTree = "<group>";
@@ -88,7 +97,6 @@
 				E9D66950B91BAFB30C78C366 /* Pods-SlangTranslator.debug.xcconfig */,
 				7B1893CB253A6904D5EB37E9 /* Pods-SlangTranslator.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -207,9 +215,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C1E344F2724C9960021E582 /* APIManager.swift in Sources */,
+				4C1E344B2724C1180021E582 /* TextInputViewController.swift in Sources */,
 				4C1E343B2724B5E70021E582 /* ViewController.swift in Sources */,
 				4C1E34372724B5E70021E582 /* AppDelegate.swift in Sources */,
 				4C1E34392724B5E70021E582 /* SceneDelegate.swift in Sources */,
+				4C1E344D2724C12D0021E582 /* ImageInputViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
