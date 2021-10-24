@@ -5,6 +5,7 @@ import cv2
 import boto3
 import numpy as np
 import os
+import json
 
 def hello_get(request):
     s3 = boto3.resource(
@@ -29,4 +30,4 @@ def hello_get(request):
     string = pytesseract.image_to_string(cv_image)
 
     # print it
-    print(string)
+    return json.dumps({"text": ret})
