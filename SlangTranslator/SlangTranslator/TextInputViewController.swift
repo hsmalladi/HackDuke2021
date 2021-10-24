@@ -59,7 +59,7 @@ class TextInputViewController: UIViewController, UITableViewDelegate {
             let decoder = JSONDecoder()
             
             do {
-                self.wordDefinitionPairs = try decoder.decode([WordDefinitionPair].self, from: data)
+                self.wordDefinitionPairs = try decoder.decode([WordDefinitionPair].self, from: data["words"].rawData())
                 
                 self.performSegue(withIdentifier: "showTextTranslation", sender: self)
                 
@@ -69,25 +69,6 @@ class TextInputViewController: UIViewController, UITableViewDelegate {
             }
             
         }
-        
-
-        //APIManager.postMethod(postURL: <#T##String#>, data: jsonData)
-
-//        AF.request("https://meta-will-329918.ue.r.appspot.com/text", method: .post, parameters: parameters, encoding: JSONEncoding.default)
-//            .responseJSON { response in
-//
-//                print(response.response?.statusCode)
-//
-//                if let responseData = response.data {
-//                    print(responseData)
-//                }
-//
-//            }
-        
-        //print(String(data: jsonData, encoding: .utf8)!)
-
-
-        
         
     }
     

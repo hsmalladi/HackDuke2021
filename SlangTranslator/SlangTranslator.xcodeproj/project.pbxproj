@@ -19,9 +19,14 @@
 		4C1E345C2724F3F40021E582 /* AWSS3Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E345B2724F3F40021E582 /* AWSS3Manager.swift */; };
 		4C1E345E27250DBB0021E582 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E345D27250DBB0021E582 /* Constants.swift */; };
 		4C1E3460272511080021E582 /* WordDefinitionPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E345F272511080021E582 /* WordDefinitionPair.swift */; };
+
+		4C1E346227252E430021E582 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E346127252E420021E582 /* SpinnerViewController.swift */; };
+		
+
 		76FB73712724F682007A7D61 /* TemplateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FB736F2724F682007A7D61 /* TemplateTableViewCell.swift */; };
 		76FB73722724F682007A7D61 /* TemplateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76FB73702724F682007A7D61 /* TemplateTableViewCell.xib */; };
 		76FB737427251BCF007A7D61 /* DefinitionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FB737327251BCF007A7D61 /* DefinitionsViewController.swift */; };
+
 		AE660F9B53BFEC325092C31C /* Pods_SlangTranslator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63471A4CE97CDF8DC4227BAC /* Pods_SlangTranslator.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,10 +45,14 @@
 		4C1E345B2724F3F40021E582 /* AWSS3Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSS3Manager.swift; sourceTree = "<group>"; };
 		4C1E345D27250DBB0021E582 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4C1E345F272511080021E582 /* WordDefinitionPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDefinitionPair.swift; sourceTree = "<group>"; };
+		4C1E346127252E420021E582 /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
 		63471A4CE97CDF8DC4227BAC /* Pods_SlangTranslator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SlangTranslator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76FB736F2724F682007A7D61 /* TemplateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateTableViewCell.swift; sourceTree = "<group>"; };
 		76FB73702724F682007A7D61 /* TemplateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TemplateTableViewCell.xib; sourceTree = "<group>"; };
+
+
 		76FB737327251BCF007A7D61 /* DefinitionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionsViewController.swift; sourceTree = "<group>"; };
+
 		B74302617FBCF221AD22A67D /* Pods-SlangTranslator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlangTranslator.debug.xcconfig"; path = "Target Support Files/Pods-SlangTranslator/Pods-SlangTranslator.debug.xcconfig"; sourceTree = "<group>"; };
 		D5E3FDA9ADC3B8E68E909BE0 /* Pods-SlangTranslator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlangTranslator.release.xcconfig"; path = "Target Support Files/Pods-SlangTranslator/Pods-SlangTranslator.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,7 +105,11 @@
 				4C1E345B2724F3F40021E582 /* AWSS3Manager.swift */,
 				4C1E345D27250DBB0021E582 /* Constants.swift */,
 				4C1E345F272511080021E582 /* WordDefinitionPair.swift */,
+
+				4C1E346127252E420021E582 /* SpinnerViewController.swift */,
+
 				76FB737327251BCF007A7D61 /* DefinitionsViewController.swift */,
+
 			);
 			path = SlangTranslator;
 			sourceTree = "<group>";
@@ -238,6 +251,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C1E346227252E430021E582 /* SpinnerViewController.swift in Sources */,
 				4C1E344F2724C9960021E582 /* APIManager.swift in Sources */,
 				4C1E344B2724C1180021E582 /* TextInputViewController.swift in Sources */,
 				4C1E343B2724B5E70021E582 /* ViewController.swift in Sources */,

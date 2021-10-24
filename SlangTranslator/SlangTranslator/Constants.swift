@@ -8,6 +8,14 @@
 import Foundation
 
 enum APIURL: String {
-    case postTextURL = "this shouldn't work"
+
+    case postTextURL = "this won't work"
+    case postImageURL = "bruh"
+}
+
+enum AWSKeys: String {
+    case accessKey = "t"
+    case secretKey = "t"
+
 }
 
