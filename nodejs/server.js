@@ -1,11 +1,17 @@
 const express = require('express')
 const app = express()
 const spawn = require('child_process').spawn
+const axios = require('axios')
 
 app.use(express.json())
 
 app.get('/', (req, res) => {
     res.send('hello')
+})
+
+app.post('/hello', async (req, res) => {
+    const response = await axios.post('https://meta-will-329918.cloudfunctions.net/ocr_s3', { jimmay: "john" })
+    res.send(response)
 })
 
 app.post('/text', (req, res) => {

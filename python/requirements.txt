@@ -1,5 +1,5 @@
 pytesseract
-cv2
+opencv-python
 boto3
 numpy
 flask
