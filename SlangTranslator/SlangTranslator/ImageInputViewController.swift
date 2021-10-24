@@ -42,6 +42,10 @@ class ImageInputViewController: UIViewController {
             return
         }
         
+//        AWSS3Manager.shared.uploadImage(image: image, progress: nil, completion: {response,error in
+//
+//        })
+        
         
     }
     

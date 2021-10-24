@@ -7,6 +7,8 @@
 
 import UIKit
 import Foundation
+import Alamofire
+import SwiftyJSON
 
 class TextInputViewController: UIViewController {
 
@@ -14,6 +16,8 @@ class TextInputViewController: UIViewController {
     @IBOutlet weak var translateButton: UIButton!
     
     var inputtedText: String = ""
+    
+    var wordDefinitionPairs: [WordDefinitionPair] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,21 +39,48 @@ class TextInputViewController: UIViewController {
             present(alert, animated: true, completion: nil)
         }
         
-        // Create model
-        struct UploadData: Codable {
-            let textToTranslate: String
+       
+        
+        let parameters = ["text": text]
+        let url = APIURL.postTextURL.rawValue
+        
+        APIManager.postJSON(url: url, parameters: parameters) { data in
+            print(data)
+            if data.isEmpty {
+                let alert = UIAlertController(title: "Error getting API data.", message: "", preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))
+                
+                self.present(alert, animated: true, completion: nil)
+                return
+            }
+            let decoder = JSONDecoder()
+            
+            do {
+                self.wordDefinitionPairs = try decoder.decode([WordDefinitionPair].self, from: data)
+                
+                self.performSegue(withIdentifier: "showTextTranslation", sender: self)
+                
+                
+            } catch let error {
+                print("Can't decode JSON because of error: \(error)")
+            }
+            
         }
         
-        // Add data to the model
-        let uploadDataModel = UploadData(textToTranslate: text)
+//        AF.request("https://meta-will-329918.ue.r.appspot.com/text", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+//            .responseJSON { response in
+//
+//                print(response.response?.statusCode)
+//
+//                if let responseData = response.data {
+//                    print(responseData)
+//                }
+//
+//            }
         
-        // Convert model to JSON data
-        guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else {
-            print("Error: Trying to convert model to JSON data")
-            return
-        }
-        
-        APIManager.postMethod(postURL: <#T##String#>, data: jsonData)
+        //print(String(data: jsonData, encoding: .utf8)!)
+
         
         
     }
