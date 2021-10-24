@@ -16,6 +16,7 @@ def hello_get(request):
     bucket = s3.Bucket('hackduke2021-receipts')
     request_json = request.get_json(force=True)
     key = request_json["image"]
+    print(key)
     img = bucket.Object(key).get().get('Body').read()
     client = vision.ImageAnnotatorClient()
     image = vision.Image(content=img)
