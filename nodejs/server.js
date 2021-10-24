@@ -1,7 +1,8 @@
 const express = require('express')
 const app = express()
-const request = require('postman-request')
 const Sequelize = require("sequelize-cockroachdb");
+const axios = require('axios')
+const request = require('postman-request');
 
 const sequelize = new Sequelize({
     dialect: "postgres",
@@ -38,92 +39,93 @@ const definition = sequelize.define("deftable", {
 
 definition.removeAttribute('id');
 
-
-definition.sync({
-    force: true,
-})
-    .then(function () {
-        // Insert two rows into the "accounts" table.
-        return definition.bulkCreate([
-            {
-                slang: "lol",
-                def: "laughing out loud; laugh out loud: used as a response to something funny or as a follow-up to something said only as a joke",
-            },
-            {
-                slang: "lmao",
-                def: "laugh my ass off",
-            },
-        ]);
-    })
-    .then(function () {
-        // Retrieve accounts.
-        return definition.findAll();
-    })
-    .then(function (definitions) {
-        // Print out the balances.
-        definitions.forEach(function (definition) {
-            console.log(definition.slang + " " + definition.def)
-        })
-        process.exit(0);
-    })
-    .catch(function (err) {
-        console.error("error: " + err.message);
-        process.exit(1);
-    });
-
-
-
 app.use(express.json())
 
 app.get('/', (req, res) => {
     res.send('hello')
 })
 
-app.get('/hello', (req, res) => {
-    request("https://us-central1-meta-will-329918.cloudfunctions.net/ocr_s3", function (error, response, body) {
-        console.log(response);
-        res.send(response)
-    });
-})
-
 app.post('/text', async (req, res) => {
+    definition.sync({
+        force: true,
+    })
+        .then(function () {
+            return definition.findAll();
+        })
+        .then(function (def) {
+            definition.forEach(function (def) {
+                console.log(def.id + " " + def.balance);
+            });
+            process.exit(0);
+        })
+        .catch(function (err) {
+            console.error("error: " + err.message);
+            process.exit(1);
+        });
     const words = req.body.text
     console.log(req.body.text)
     let slangArr = []
     const wordsArr = words.split(" ")
-    wordsArr.forEach(word => word.trim().toLowerCase())
-    const uniqueWords = [...new Set(wordsArr)]
-    for (let word of uniqueWords) {
-        if (word != '') {
+    const newWords = wordsArr.map(word => word.trim().toLowerCase())
+    const uniqueWords = [...new Set(newWords)]
+    console.log('uniqueWords ' + uniqueWords)
+    for (let charac of uniqueWords) {
+        if (charac != '') {
             // if not in database
-            const slangInDatabase = await definition.findOne({ where: { slang: word } })
+            const slangInDatabase = await definition.findOne({ where: { slang: charac } })
+            console.log(slangInDatabase)
             if (slangInDatabase) {
-                const obj = { "word": word, "definition": slangInDatabase.dataValues.def }
-                slangArr.push(obj)
+                const json = { "word": charac, "definition": obj[charac] }
+                slangArr.push(json)
             }
             else {
-                request("https://us-central1-meta-will-329918.cloudfunctions.net/ocr_s3", function (error, response, body) {
-                    console.log(response)
-                });
+                console.log(charac)
+                axios.post("https://us-central1-meta-will-329918.cloudfunctions.net/webscraper", { word: charac }).then(res => {
+                    console.log('statusCode: ' + res.status)
+                    console.log(res)
+                }).catch(err => {
+                    console.log(err)
+                })
+                // if (response["word"] != "") {
+                //     const obj = { "word": word, "definition": response["definition"] }
+                //     slangArr.push(obj)
+                // }
             }
-
         }
     }
-    res.json(req.body)
+    res.json(slangArr)
 })
 
-// get image from edison and run python script 
-// get list of words, then iterate through and check
-// whether it is in the database
-// if it is, use the def in the database
-// if not, run havishs code to get the web scraped definition
 app.post('/image', (req, res) => {
-    request.post("https://us-central1-meta-will-329918.cloudfunctions.net/ocr_s3", { body: req.body },
-        function (error, response, body) {
-            console.log(response)
-            res.send(response)
-        });
+    try {
+        const img = req.body.image
+        console.log(img)
+        request.post({
+            url: "https://us-central1-fleet-muse-297716.cloudfunctions.net/ocr_s3",
+            json: { "image": img }
+        },
+            function (error, response, body) {
+                console.log('error ' + error)
+                console.log('response ' + response)
+                console.log('body ' + body)
+                const slangArr = []
+                const words = response.body.text.split(" ")
+                const newWords = words.map(word => word.trim().toLowerCase())
+                const uniqueWords = [...new Set(newWords)]
+                for (let word of uniqueWords) {
+                    if (word in obj) {
+                        const json = { "word": word, "definition": obj[word] }
+                        slangArr.push(json)
+                    }
+                }
+                res.json(slangArr)
+            }
+        )
+    } catch (e) {
+        console.log(e)
+    }
 })
+
 
 const port = process.env.PORT || 3000
 
