@@ -2,6 +2,10 @@ const express = require('express')
 const app = express()
 const spawn = require('child_process').spawn
 
+app.get('/', (req, res) => {
+    res.send('hello')
+})
+
 app.get('/text', (req, res) => {
     const words = req.body
     console.log(words)
