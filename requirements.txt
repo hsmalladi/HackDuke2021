@@ -1,0 +1,5 @@
+pytesseract
+cv2
+boto3
+numpy
+flask
