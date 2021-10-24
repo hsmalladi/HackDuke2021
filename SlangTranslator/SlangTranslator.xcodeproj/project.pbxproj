@@ -17,7 +17,6 @@
 		4C1E344D2724C12D0021E582 /* ImageInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E344C2724C12D0021E582 /* ImageInputViewController.swift */; };
 		4C1E344F2724C9960021E582 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E344E2724C9960021E582 /* APIManager.swift */; };
 		4C1E345C2724F3F40021E582 /* AWSS3Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E345B2724F3F40021E582 /* AWSS3Manager.swift */; };
-		4C1E345E27250DBB0021E582 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E345D27250DBB0021E582 /* Constants.swift */; };
 		4C1E3460272511080021E582 /* WordDefinitionPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E345F272511080021E582 /* WordDefinitionPair.swift */; };
 		4C1E346227252E430021E582 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E346127252E420021E582 /* SpinnerViewController.swift */; };
 		4C1E3464272549F70021E582 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E3463272549F70021E582 /* UIViewControllerExtension.swift */; };
@@ -41,7 +40,6 @@
 		4C1E344C2724C12D0021E582 /* ImageInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInputViewController.swift; sourceTree = "<group>"; };
 		4C1E344E2724C9960021E582 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		4C1E345B2724F3F40021E582 /* AWSS3Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSS3Manager.swift; sourceTree = "<group>"; };
-		4C1E345D27250DBB0021E582 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4C1E345F272511080021E582 /* WordDefinitionPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDefinitionPair.swift; sourceTree = "<group>"; };
 		4C1E346127252E420021E582 /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
 		4C1E3463272549F70021E582 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
@@ -100,7 +98,6 @@
 				76FB736F2724F682007A7D61 /* TemplateTableViewCell.swift */,
 				76FB73702724F682007A7D61 /* TemplateTableViewCell.xib */,
 				4C1E345B2724F3F40021E582 /* AWSS3Manager.swift */,
-				4C1E345D27250DBB0021E582 /* Constants.swift */,
 				4C1E345F272511080021E582 /* WordDefinitionPair.swift */,
 				4C1E346127252E420021E582 /* SpinnerViewController.swift */,
 				76FB737327251BCF007A7D61 /* DefinitionsViewController.swift */,
@@ -260,7 +257,6 @@
 				4C1E3464272549F70021E582 /* UIViewControllerExtension.swift in Sources */,
 				76FB73712724F682007A7D61 /* TemplateTableViewCell.swift in Sources */,
 				4C1E345C2724F3F40021E582 /* AWSS3Manager.swift in Sources */,
-				4C1E345E27250DBB0021E582 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
