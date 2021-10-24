@@ -127,10 +127,11 @@
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Test" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xfc-Cq-Ebx">
                                 <rect key="frame" x="20" y="185" width="374" height="517"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                <color key="tintColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="no"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jDp-Th-Len">
                                 <rect key="frame" x="20" y="722" width="374" height="51"/>
@@ -169,37 +170,51 @@
             </objects>
             <point key="canvasLocation" x="1500.0000000000002" y="421.875"/>
         </scene>
-        <!--View Controller-->
+        <!--Definitions View Controller-->
         <scene sceneID="KYp-Kr-EMz">
             <objects>
-                <viewController id="ade-TM-AWe" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="definition" id="ade-TM-AWe" customClass="DefinitionsViewController" customModule="SlangTranslator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pJ0-xy-bNG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fJ0-WN-Qwa">
-                                <rect key="frame" x="20" y="88" width="374" height="128"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="This is where the translated text will go." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fJ0-WN-Qwa">
+                                <rect key="frame" x="20" y="88" width="374" height="194"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
+                                </accessibility>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="j4Q-pU-OzG">
+                                <rect key="frame" x="16" y="298" width="382" height="548"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rnZ-Z5-0UK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="fJ0-WN-Qwa" firstAttribute="leading" secondItem="pJ0-xy-bNG" secondAttribute="leadingMargin" id="6U2-1O-NWx"/>
-                            <constraint firstItem="fJ0-WN-Qwa" firstAttribute="top" secondItem="rnZ-Z5-0UK" secondAttribute="top" constant="20" id="WH7-d5-Oe2"/>
-                            <constraint firstItem="fJ0-WN-Qwa" firstAttribute="centerX" secondItem="pJ0-xy-bNG" secondAttribute="centerX" id="l9f-os-FYo"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="fJ0-WN-Qwa" secondAttribute="trailing" id="mDW-v5-bNI"/>
+                            <constraint firstItem="rnZ-Z5-0UK" firstAttribute="trailing" secondItem="fJ0-WN-Qwa" secondAttribute="trailing" constant="20" id="Aap-Y0-JY2"/>
+                            <constraint firstItem="j4Q-pU-OzG" firstAttribute="top" secondItem="fJ0-WN-Qwa" secondAttribute="bottom" constant="16" id="HdJ-xr-2Y7"/>
+                            <constraint firstItem="j4Q-pU-OzG" firstAttribute="leading" secondItem="rnZ-Z5-0UK" secondAttribute="leading" constant="16" id="TPj-CY-wmM"/>
+                            <constraint firstItem="rnZ-Z5-0UK" firstAttribute="bottom" secondItem="j4Q-pU-OzG" secondAttribute="bottom" constant="16" id="Web-E7-s7Y"/>
+                            <constraint firstItem="fJ0-WN-Qwa" firstAttribute="leading" secondItem="rnZ-Z5-0UK" secondAttribute="leading" constant="20" id="bpn-Vi-6Sg"/>
+                            <constraint firstItem="rnZ-Z5-0UK" firstAttribute="bottom" secondItem="fJ0-WN-Qwa" secondAttribute="bottom" constant="580" id="brr-Rf-3V6"/>
+                            <constraint firstItem="fJ0-WN-Qwa" firstAttribute="top" secondItem="rnZ-Z5-0UK" secondAttribute="top" id="t81-nB-Fdn"/>
+                            <constraint firstItem="rnZ-Z5-0UK" firstAttribute="trailing" secondItem="j4Q-pU-OzG" secondAttribute="trailing" constant="16" id="zMf-DC-xJ6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1fX-Db-ee5"/>
+                    <connections>
+                        <outlet property="myTableView" destination="j4Q-pU-OzG" id="A0R-Vx-6IH"/>
+                        <outlet property="myTextView" destination="fJ0-WN-Qwa" id="KSo-9v-pBg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VSH-oF-5it" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2410" y="422"/>
+            <point key="canvasLocation" x="2407.2463768115945" y="421.875"/>
         </scene>
     </scenes>
     <resources>
@@ -213,6 +228,9 @@
         </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

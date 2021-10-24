@@ -8,11 +8,14 @@
 import Foundation
 
 enum APIURL: String {
-    case postTextURL = "https://meta-will-329918.ue.r.appspot.com/text"
-    case postImageURL = "https://meta-will-329918.ue.r.appspot.com/image"
+
+    case postTextURL = "this won't work"
+    case postImageURL = "bruh"
 }
 
 enum AWSKeys: String {
-    case accessKey = "AKIAUVLTE3KDRMIY7B5X"
-    case secretKey = "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"
+    case accessKey = "t"
+    case secretKey = "t"
+
 }
+

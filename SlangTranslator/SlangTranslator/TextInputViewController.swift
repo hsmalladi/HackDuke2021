@@ -10,10 +10,12 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-class TextInputViewController: UIViewController {
+class TextInputViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet weak var mainTextView: UITextView!
     @IBOutlet weak var translateButton: UIButton!
+    
+    @IBOutlet weak var placeholderText: UITextView!
     
     var inputtedText: String = ""
     
