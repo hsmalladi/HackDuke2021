@@ -35,6 +35,22 @@ class TextInputViewController: UIViewController {
             present(alert, animated: true, completion: nil)
         }
         
+        // Create model
+        struct UploadData: Codable {
+            let textToTranslate: String
+        }
+        
+        // Add data to the model
+        let uploadDataModel = UploadData(textToTranslate: text)
+        
+        // Convert model to JSON data
+        guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else {
+            print("Error: Trying to convert model to JSON data")
+            return
+        }
+        
+        APIManager.postMethod(postURL: <#T##String#>, data: jsonData)
+        
         
     }
     

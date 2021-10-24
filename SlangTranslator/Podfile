@@ -8,5 +8,6 @@ target 'SlangTranslator' do
   # Pods for SlangTranslator
 pod 'Alamofire', '~> 5.4'
 pod 'SwiftyJSON', '~> 4.0'
+pod 'AWSS3'
 
 end

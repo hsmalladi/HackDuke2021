@@ -1,20 +1,28 @@
 PODS:
   - Alamofire (5.4.3)
+  - AWSCore (2.26.2)
+  - AWSS3 (2.26.2):
+    - AWSCore (= 2.26.2)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.4)
+  - AWSS3
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - AWSCore
+    - AWSS3
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  AWSCore: dd7f74ab3f354aad435f83afdbfac91bcb7d44c2
+  AWSS3: cad52255a6cfa4ef7bd1abc95a726d8670f141c8
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 6261b253ca970a9e165502ee368a018075df5eb2
+PODFILE CHECKSUM: f8e283ae1b7f3e70e3afbed9d5fa87d7dc13970e
 
 COCOAPODS: 1.11.0
