@@ -13,7 +13,7 @@ app.post('/text', (req, res) => {
     // for (let word of words) {
     //     // run java
     // }
-    res.send(req.body)
+    res.json(req.body)
 })
 
 // get image from edison and run python script 
