@@ -9,9 +9,9 @@ app.get('/', (req, res) => {
 app.get('/text', (req, res) => {
     const words = req.body
     console.log(words)
-    for (let word of words) {
-        // run java
-    }
+    // for (let word of words) {
+    //     // run java
+    // }
     res.send(words)
 })
 
