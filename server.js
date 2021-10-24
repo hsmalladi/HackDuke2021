@@ -9,10 +9,12 @@ app.get('/', (req, res) => {
 })
 
 app.post('/text', (req, res) => {
-    console.log(req)
-    // for (let word of words) {
-    //     // run java
-    // }
+    const words = req.body.text
+    console.log(req.body.text)
+    let slangObj = {}
+    for (let word of words.split(" ")) {
+        console.log(word)
+    }
     res.json(req.body)
 })
 
