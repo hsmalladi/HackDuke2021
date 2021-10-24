@@ -8,5 +8,6 @@
 import Foundation
 
 enum APIURL: String {
-    case postTextURL = "this wont work"
+    case postTextURL = "this shouldn't work"
 }
+

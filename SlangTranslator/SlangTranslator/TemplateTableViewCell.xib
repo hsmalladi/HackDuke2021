@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="399" height="206"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F26-fM-7dV">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Word" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F26-fM-7dV">
                         <rect key="frame" x="16" y="16" width="77" height="37"/>
                         <accessibility key="accessibilityConfiguration">
                             <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
@@ -25,8 +25,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TzD-XK-h7A">
-                        <rect key="frame" x="16" y="55" width="367" height="135"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TzD-XK-h7A">
+                        <rect key="frame" x="16" y="68" width="367" height="122"/>
                         <string key="text">The definition of this slang is put here as a test and should go to the next line. Essentially, if the definition gets really big, it shouldn't be cut out by the box, which should dynamically space itself around the text.</string>
                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                         <nil key="textColor"/>
@@ -39,6 +39,7 @@
                     <constraint firstAttribute="bottom" secondItem="TzD-XK-h7A" secondAttribute="bottom" constant="16" id="KBX-Lo-Vtq"/>
                     <constraint firstAttribute="trailing" secondItem="TzD-XK-h7A" secondAttribute="trailing" constant="16" id="Ywh-rx-OwS"/>
                     <constraint firstItem="F26-fM-7dV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="eeT-9D-XK5"/>
+                    <constraint firstItem="TzD-XK-h7A" firstAttribute="top" secondItem="F26-fM-7dV" secondAttribute="bottom" constant="10" id="hVc-3q-Gah"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
