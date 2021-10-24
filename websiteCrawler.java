@@ -30,6 +30,8 @@ public class websiteCrawler {
             str = str.substring(str.indexOf("<p>", index), str.indexOf("</p>", index)).replace("\n"," ");
             str = str.replaceAll("&#8220;", "\"");
             str = str.replaceAll("&#8221;", "\"");
+            str = str.replaceAll("&#8217;", "\'");
+            str = str.replaceAll("&#8216;", "\'");
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < str.length(); i++) {
               if (str.charAt(i) == '<') {
@@ -43,7 +45,7 @@ public class websiteCrawler {
               sb.append(str.charAt(i));
             }
             System.out.println(sb.toString().replaceAll(">",""));
-            return sb.toString().replaceAll(">","");
+            return str;
         }catch (Exception e){
             System.out.println("Not slang");
         }
