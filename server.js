@@ -2,11 +2,13 @@ const express = require('express')
 const app = express()
 const spawn = require('child_process').spawn
 
+app.use(express.json())
+
 app.get('/', (req, res) => {
     res.send('hello')
 })
 
-app.get('/text', (req, res) => {
+app.post('/text', (req, res) => {
     console.log(req)
     // for (let word of words) {
     //     // run java
