@@ -17,8 +17,8 @@ plugin 'cocoapods-keys', {
   :keys => [
     "textURL",
 	"imageURL",
-	"accessKey",
-	"secretKey"
+	"accessKey2",
+	"secretKey2"
   ]}
 
 

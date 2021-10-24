@@ -21,7 +21,5 @@
 			</array>
 		</dict>
 	</dict>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Allow access to translate from screenshots/photos.</string>
 </dict>
 </plist>

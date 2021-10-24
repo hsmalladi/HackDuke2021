@@ -88,7 +88,7 @@ class ImageInputViewController: UIViewController {
                 return
             }
             
-            let parameters = ["image_name": imageName]
+            let parameters = ["image": imageName]
             let url = "https://meta-will-329918.ue.r.appspot.com/image"
             print(url)
             
@@ -111,7 +111,7 @@ class ImageInputViewController: UIViewController {
                 
                 do {
                     
-                    try print(data.rawData())
+                    //try print(data.rawData())
                     self.wordDefinitionPairs = try decoder.decode([WordDefinitionPair].self, from: data.rawData())
                     
                     //Remove loading view upon completion of API calls
