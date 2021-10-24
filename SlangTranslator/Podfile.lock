@@ -16,6 +16,7 @@ PODS:
     - AWSCore (= 2.26.2)
   - AWSS3 (2.26.2):
     - AWSCore (= 2.26.2)
+  - Keys (1.0.1)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
@@ -23,6 +24,7 @@ DEPENDENCIES:
   - AWSMobileClient
   - AWSPinpoint
   - AWSS3
+  - Keys (from `Pods/CocoaPodsKeys`)
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
@@ -37,6 +39,10 @@ SPEC REPOS:
     - AWSS3
     - SwiftyJSON
 
+EXTERNAL SOURCES:
+  Keys:
+    :path: Pods/CocoaPodsKeys
+
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   AWSAuthCore: c785a33af10a45aab6456a5fa7150f759dad836f
@@ -46,8 +52,9 @@ SPEC CHECKSUMS:
   AWSMobileClient: fc20c58eaad166b3d2a569ef9ce691d6fed0c5dd
   AWSPinpoint: 4b9a9ca37cc82e56050b9f0b93451b5d99d5b110
   AWSS3: cad52255a6cfa4ef7bd1abc95a726d8670f141c8
+  Keys: a576f4c9c1c641ca913a959a9c62ed3f215a8de9
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: a913f1816cf75f1e497dfde4bf04e601144431eb
+PODFILE CHECKSUM: 233aefc8023b1b7c1f5cd484c16257aca2c6ec18
 
 COCOAPODS: 1.11.0

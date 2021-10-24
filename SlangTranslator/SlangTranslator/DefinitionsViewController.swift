@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DefinitionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DefinitionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     
     @IBOutlet weak var myTextView: UITextView!
     @IBOutlet weak var myTableView: UITableView!
@@ -21,6 +21,7 @@ class DefinitionsViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         myTextView.text = translatedText
+        initializeAttributedText()
         myTextView.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor
         myTextView.layer.borderWidth = 4
         myTextView.layer.cornerRadius = 5
@@ -29,14 +30,11 @@ class DefinitionsViewController: UIViewController, UITableViewDelegate, UITableV
         myTableView.delegate = self
         myTableView.register(TemplateTableViewCell.nib(), forCellReuseIdentifier: TemplateTableViewCell.identifier)
         
-        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pairs.count
@@ -62,15 +60,24 @@ class DefinitionsViewController: UIViewController, UITableViewDelegate, UITableV
             let linkRange = originalAttributedText.mutableString.range(of: word, options: .caseInsensitive)
             print(linkRange)
             
-            originalAttributedText.addAttribute(.foregroundColor, value: UIColor.green, range: linkRange)
+            
             originalAttributedText.addAttribute(.link, value: word, range: linkRange)
+            originalAttributedText.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 21), range: linkRange)
+            originalAttributedText.addAttribute(.foregroundColor, value: UIColor.green, range: linkRange)
+            originalAttributedText.addAttribute(.underlineStyle, value: NSUnderlineStyle.single, range: linkRange)
         }
+        
+        myTextView.attributedText = originalAttributedText
     }
-
-
-}
-
-extension DefinitionsViewController: UITextViewDelegate {
+    
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
+    
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
         let selectedWord = URL.absoluteString
         if let index = pairs.firstIndex(where: {$0.word == selectedWord}) {
@@ -80,6 +87,8 @@ extension DefinitionsViewController: UITextViewDelegate {
         
         return false
     }
+
+
 }
 
 

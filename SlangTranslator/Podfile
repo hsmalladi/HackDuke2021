@@ -12,5 +12,14 @@ pod 'AWSMobileClient'
 pod 'AWSPinpoint'
 pod 'AWSS3'
 
+plugin 'cocoapods-keys', {
+  :project => "Eidolon",
+  :keys => [
+    "textURL",
+	"imageURL",
+	"accessKey",
+	"secretKey"
+  ]}
+
 
 end

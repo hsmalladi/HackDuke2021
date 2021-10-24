@@ -53,9 +53,7 @@ class TextInputViewController: UIViewController, UITextViewDelegate {
             return
         }
         
-        performSegue(withIdentifier: "showTextTranslation", sender: self)
-        
-        
+        print(AWSS3Manager.keys.imageURL)
         
         if text.trimmingCharacters(in: .whitespaces) == "" {
             print("Please enter some text to translate.")
@@ -66,6 +64,8 @@ class TextInputViewController: UIViewController, UITextViewDelegate {
             present(alert, animated: true, completion: nil)
         }
         
+        self.inputtedText = text
+        
         //Show loading screen
         let child = SpinnerViewController()
         
@@ -75,7 +75,7 @@ class TextInputViewController: UIViewController, UITextViewDelegate {
         child.didMove(toParent: self)
         
         let parameters = ["text": text]
-        let url = APIURL.postTextURL.rawValue
+        let url = AWSS3Manager.keys.textURL
         
         APIManager.postJSON(url: url, parameters: parameters) { data in
             print(data)
@@ -95,7 +95,7 @@ class TextInputViewController: UIViewController, UITextViewDelegate {
             let decoder = JSONDecoder()
             
             do {
-                self.wordDefinitionPairs = try decoder.decode([WordDefinitionPair].self, from: data["words"].rawData())
+                self.wordDefinitionPairs = try decoder.decode([WordDefinitionPair].self, from: data.rawData())
                 
                 //Remove loading view upon completion of API Calls
                 child.willMove(toParent: nil)
@@ -125,15 +125,16 @@ class TextInputViewController: UIViewController, UITextViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showTextTranslation" {
             let destVC = segue.destination as! DefinitionsViewController
-            let fakePairs = [
-                WordDefinitionPair(word: "lmao", definition: "Laugh my ass off"),
-                WordDefinitionPair(word: "lol", definition: "Laugh out loud"),
-                WordDefinitionPair(word: "wtf", definition: "aweufiuwaen fiuawefiu enwafuawe  iufnlaiweufi awejcilu snfiuan wilcun awieyfb lweajcn auwr fhla sjd clkuawnefciaelfbarybvld jsncuawrgi awenf weo fn  ajefa lweflk ajw  awef nalwf n afnwenfwea"),
-                
-                
-            ]
-//            destVC.pairs = self.wordDefinitionPairs
-            destVC.pairs = fakePairs
+//            let fakePairs = [
+//                WordDefinitionPair(word: "lmao", definition: "Laugh my ass off"),
+//                WordDefinitionPair(word: "lol", definition: "Laugh out loud"),
+//                WordDefinitionPair(word: "wtf", definition: "aweufiuwaen fiuawefiu enwafuawe  iufnlaiweufi awejcilu snfiuan wilcun awieyfb lweajcn auwr fhla sjd clkuawnefciaelfbarybvld jsncuawrgi awenf weo fn  ajefa lweflk ajw  awef nalwf n afnwenfwea"),
+//
+//
+//            ]
+            destVC.pairs = self.wordDefinitionPairs
+            destVC.translatedText = inputtedText
+            //destVC.pairs = fakePairs
         }
     }
     

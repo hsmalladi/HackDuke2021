@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import AWSS3 //1
+import Keys
 
 typealias progressBlock = (_ progress: Double) -> Void //2
 typealias completionBlock = (_ response: Any?, _ error: Error?) -> Void //3
@@ -17,12 +18,13 @@ class AWSS3Manager {
     static let shared = AWSS3Manager() // 4
     private init () { }
     let bucketName = "hackduke2021-receipts" //5
+    static let keys = EidolonKeys()
     
     // Upload image using UIImage object
     func uploadImage(withImage image: UIImage, completion:@escaping (String) -> ()) {
 
-        let access = AWSKeys.accessKey.rawValue
-        let secret = AWSKeys.secretKey.rawValue
+        let access = AWSS3Manager.keys.accessKey
+        let secret = AWSS3Manager.keys.secretKey
         let credentials = AWSStaticCredentialsProvider(accessKey: access, secretKey: secret)
         let configuration = AWSServiceConfiguration(region: AWSRegionType.USEast1, credentialsProvider: credentials)
 
@@ -31,6 +33,7 @@ class AWSS3Manager {
         let s3BucketName = bucketName
         //let compressedImage = image.resizedImage(newSize: CGSize(width: 80, height: 80))
         let data: Data = image.pngData()!
+        
         let remoteName = generateRandomStringWithLength(length: 12)+"."+data.format
         print("REMOTE NAME : ",remoteName)
 

@@ -8,6 +8,7 @@
 import UIKit
 import AWSS3
 import AWSMobileClient
+import SwiftyJSON
 
 class ImageInputViewController: UIViewController {
     
@@ -51,6 +52,7 @@ class ImageInputViewController: UIViewController {
         view.addSubview(child.view)
         child.didMove(toParent: self)
         
+        
         guard let image = imageButton.currentImage, let selected = selectedImage else {
             //Remove loading view upon completion of API Calls
             child.willMove(toParent: nil)
@@ -67,8 +69,6 @@ class ImageInputViewController: UIViewController {
             return
         }
         
-        performSegue(withIdentifier: "showImageTranslation", sender: self)
-        
         
         
         AWSS3Manager.shared.uploadImage(withImage: selected) { imageName in
@@ -77,6 +77,7 @@ class ImageInputViewController: UIViewController {
                 child.willMove(toParent: nil)
                 child.view.removeFromSuperview()
                 child.removeFromParent()
+                
                 
                 
                 let alert = UIAlertController(title: "Error uploading image.", message: "", preferredStyle: .alert)
@@ -88,7 +89,8 @@ class ImageInputViewController: UIViewController {
             }
             
             let parameters = ["image_name": imageName]
-            let url = APIURL.postImageURL.rawValue
+            let url = AWSS3Manager.keys.imageURL
+            print(url)
             
             APIManager.postJSON(url: url, parameters: parameters) { data in
                 print(data)
@@ -108,7 +110,9 @@ class ImageInputViewController: UIViewController {
                 let decoder = JSONDecoder()
                 
                 do {
-                    self.wordDefinitionPairs = try decoder.decode([WordDefinitionPair].self, from: data["words"].rawData())
+                    
+                    try print(data.rawData())
+                    self.wordDefinitionPairs = try decoder.decode([WordDefinitionPair].self, from: data.rawData())
                     
                     //Remove loading view upon completion of API calls
                     child.willMove(toParent: nil)
@@ -129,9 +133,6 @@ class ImageInputViewController: UIViewController {
                 
             }
             
-            
-            
-            
         }
         
         
@@ -142,6 +143,7 @@ class ImageInputViewController: UIViewController {
             let destVC = segue.destination as! ImageDefinitionsViewController
             if let selected = selectedImage {
                 destVC.image = selected
+                destVC.pairs = wordDefinitionPairs
             }
             
         }
@@ -159,10 +161,9 @@ extension ImageInputViewController: UIImagePickerControllerDelegate & UINavigati
             imageButton.setImage(image.resizedImage(newSize: CGSize(width: 374, height: 460)), for: .normal)
             
             imageButton.setTitle("", for: .normal)
-                                 
-                
             
         }
+        
         
         if let imageName = info[.imageURL] as? String {
             currentImageName = imageName
@@ -174,7 +175,6 @@ extension ImageInputViewController: UIImagePickerControllerDelegate & UINavigati
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
-    
     
 }
 

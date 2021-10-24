@@ -20,6 +20,9 @@ class ImageDefinitionsViewController: UIViewController, UITableViewDelegate, UIT
         mainImageView.image = image
         mainTableView.delegate = self
         mainTableView.dataSource = self
+        mainTableView.register(TemplateTableViewCell.nib(), forCellReuseIdentifier: TemplateTableViewCell.identifier)
+        
+        
         
 
     }
