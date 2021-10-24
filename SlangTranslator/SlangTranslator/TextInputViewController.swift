@@ -49,7 +49,7 @@ class TextInputViewController: UIViewController {
             return
         }
         
-        APIManager.postMethod(postURL: <#T##String#>, data: jsonData)
+        //APIManager.postMethod(postURL: <#T##String#>, data: jsonData)
         
         
     }
