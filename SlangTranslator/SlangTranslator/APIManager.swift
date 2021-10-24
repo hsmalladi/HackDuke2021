@@ -46,7 +46,7 @@ class APIManager {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
     
-    static func postJSON(url: String, parameters: [String: Any], completion:@escaping (Data) -> ()) {
+    static func postJSON(url: String, parameters: [String: Any], completion:@escaping (JSON) -> ()) {
         
         AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { response in
@@ -57,7 +57,8 @@ class APIManager {
                         switch httpStatusCode {
                         case 200:
                             if let responseData = response.data {
-                                completion(responseData)
+                                
+                                completion(JSON(responseData))
                             }
 //
 //                        case 400:
@@ -67,13 +68,13 @@ class APIManager {
 //                        case 429:
 //                            completion(JSON(["failure": "Error: Too many requests, please contact app support"]))
                         default:
-                            completion(Data())
+                            completion(JSON())
                         }
                     }
                     
                 case .failure(let error):
                     print(error)
-                    completion(Data())
+                    completion(JSON())
                 }
                 
                 

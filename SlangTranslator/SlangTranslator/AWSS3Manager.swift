@@ -19,18 +19,18 @@ class AWSS3Manager {
     let bucketName = "hackduke2021-receipts" //5
     
     // Upload image using UIImage object
-    func uploadImage(withImage image: UIImage) {
+    func uploadImage(withImage image: UIImage, completion:@escaping (String) -> ()) {
 
-        let access = "YOUR ACCESS KEY"
-        let secret = "YOUR SECRET KEY"
+        let access = AWSKeys.accessKey.rawValue
+        let secret = AWSKeys.secretKey.rawValue
         let credentials = AWSStaticCredentialsProvider(accessKey: access, secretKey: secret)
         let configuration = AWSServiceConfiguration(region: AWSRegionType.USEast1, credentialsProvider: credentials)
 
         AWSServiceManager.default().defaultServiceConfiguration = configuration
 
-        let s3BucketName = "YOUR BUCKET NAME"
-        let compressedImage = image.resizedImage(newSize: CGSize(width: 80, height: 80))
-        let data: Data = compressedImage.pngData()!
+        let s3BucketName = bucketName
+        //let compressedImage = image.resizedImage(newSize: CGSize(width: 80, height: 80))
+        let data: Data = image.pngData()!
         let remoteName = generateRandomStringWithLength(length: 12)+"."+data.format
         print("REMOTE NAME : ",remoteName)
 
@@ -44,9 +44,12 @@ class AWSS3Manager {
        var completionHandler: AWSS3TransferUtilityUploadCompletionHandlerBlock?
         completionHandler = { (task, error) -> Void in
             DispatchQueue.main.async(execute: {
+                if error != nil {
+                    completion("Error")
+                } else {
+                    completion(remoteName)
+                }
                 
-                // Do something e.g. Alert a user for transfer completion.
-                // On failed uploads, `error` contains the error object.
             })
         }
 
@@ -62,6 +65,7 @@ class AWSS3Manager {
                 if let absoluteString = publicURL?.absoluteString {
                     // Set image with URL
                     print("Image URL : ",absoluteString)
+                    
                 }
             }
 
